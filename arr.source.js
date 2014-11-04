@@ -2,7 +2,7 @@
  *
  * Arr.js - Arr!
  *
- * Arr.js provides some extra functions for array.
+ * Arr.js enhances the JavaScript Array Object by providing a set of custom functions. 
  *
  * @author Kevin Gimbel <kevingimbel.com>
  * @version 0.0.1

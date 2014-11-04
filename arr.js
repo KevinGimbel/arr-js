@@ -2,7 +2,7 @@
  *
  * Arr.js - Arr!
  *
- * Arr.js provides some extra functions for array.
+ * Arr.js enhances the JavaScript Array Object by providing a set of custom functions. 
  *
  * @author Kevin Gimbel <kevingimbel.com>
  * @version 0.0.1
@@ -18,7 +18,7 @@
 /*
  * Array.last()
  *
- * Simpy returns the last element of an array. If a number is given
+ * Simply returns the last element of an array. If a number is given
  * as a parameter it will return the last N elements.
  * 
  * ```js
@@ -49,7 +49,7 @@ Array.prototype.last = function(num) {
 /*
  * Array.first()
  *
- * Simpy returns the first element of an array. If a number is given
+ * Simply returns the first element of an array. If a number is given
  * as a parameter it will return the first N elements.
  * 
  * ```js
@@ -151,7 +151,7 @@ Array.prototype.reverse = function() {
 /*
 * Array.contains()
  *
- * Checks an array for one or more entries, seperated by comma (,)
+ * Checks an array for one or more entries, separated by comma (,)
  * *Notice*: If one of the searches is not found this function will return
  * false, otherwise it will return the complete array.
  *
