@@ -1,0 +1,111 @@
+<html>
+<head>
+  <title>Arr.js - the pirate way of JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site__header">
+  <div class="wrap">
+    <h1>Arr.js</h1>
+    <small>Initial version.</small>
+    <p>Arr.js provides some enhanced function to JavaScript Arrays, below you can see some quick examples. But there's also a <a href="./doc/arr.js.html">little documentation page</a> where you can see comments, examples and the acual source code.</p>
+  </div>
+</header>
+
+<main class="wrapper">
+  <section class="article">
+    <h2 class="example__headline">Array.last()</h2>
+    <pre><code>
+[1,2,3,4,5].last() // => 5
+[1,2,3,4,5].last(2) // => 5,4
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.first()</h2>
+    <pre><code>
+[1,2,3,4,5].first() // => 1
+[1,2,3,4,5].first(3) // => 1,2,3
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.size()</h2>
+    <pre><code>
+[1,2,3,4,5].first() // => 4
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.size()</h2>
+    <pre><code>
+[1,2,3,4,5].first() // => 4
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.filter(condition())</h2>
+    <pre><code>
+[1,2,3,4,5].filter(function(index) {
+  return index > 3;
+}) // => [4,5]
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.reverse()</h2>
+    <pre><code>
+[1,2,3,4,5].reverse() // => [5,4,3,2,1]
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.contains()</h2>
+    <pre><code>
+[1,2,3,4,5].contains(4) // => [1,2,3,4,5]
+[1,2,3,4,5].contains('a test string') // => false
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.copy()</h2>
+    <pre><code>
+    var x = [1,2,3,4,5],
+    y = x.copy() 
+    // => x = [1,2,3,4,5]
+    // => y = [1,2,3,4,5]
+    </code></pre>
+  </section>
+
+  <section class="article">
+    <h2 class="example__headline">Array.merge()</h2>
+    <pre><code>
+[1,2,3,4,5].merge(['another', 'array']) // => [1,2,3,4,5,'another','array']
+    </code></pre>
+  </section>
+</main>
+
+<footer class="site__footer">
+  <p>Made with &hearts; by <a href="https://twitter.com/_kevinatari">Kevin Gimbel</a></p>
+</footer>
+
+<script type="text/javascript">
+  function injectScript() {
+    var el = document.createElement('script');
+    el.type = 'text/javascript';
+    el.src = 'arr.source.js';
+    document.body.appendChild(el);
+  }
+
+  document.addEventListener('DOMContentLoaded', injectScript, false);
+
+  var x = [1,2,3,4,5],
+      y = ['my', 'test', 'array'];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var output = document.querySelector('#output');
+
+  });
+</script>
+</body>
+</html>
