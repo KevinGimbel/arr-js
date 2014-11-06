@@ -1,5 +1,9 @@
 body {
+<<<<<<< HEAD
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif;
+=======
+  font-family: Arial, Helvetica, sans-serif;
+>>>>>>> d568e0a8fa9c8deec56c5384733faeb9837ec5b2
   font-size: 15px;
   line-height: 22px;
   margin: 0;
