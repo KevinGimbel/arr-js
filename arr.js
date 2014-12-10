@@ -5,7 +5,7 @@
  * Arr.js enhances the JavaScript Array Object by providing a set of custom functions. 
  *
  * @author Kevin Gimbel <kevingimbel.com>
- * @version 0.0.1
+ * @version 0.0.2
  * @page kevingimbel.com/arr-js
  * 
  *
@@ -16,7 +16,38 @@
 
 
 /*
- * Array.last()
+ * ## Array.first()
+ *
+ * Simply returns the first element of an array. If a number is given
+ * as a parameter it will return the first N elements.
+ * 
+ * ```js
+ * [0,1,2,3].first() // => 0
+ * [0,1,2,3].first(2) // => [0,1]
+ * ```
+ *
+ * @params none, number
+ * @return first element; {array} range
+*/ 
+Array.prototype.first = function(num) {
+  if(typeof num !== 'number') {
+    return this[0];
+  }
+  var dump = [], 
+      array = this; 
+  for(var i = 0; i <= num - 1; i++) { 
+    dump.push(array[i]); 
+  } 
+  return dump; 
+}
+
+
+
+
+
+
+/*
+ * ## Array.last()
  *
  * Simply returns the last element of an array. If a number is given
  * as a parameter it will return the last N elements.
@@ -46,37 +77,12 @@ Array.prototype.last = function(num) {
 
 
 
-/*
- * Array.first()
- *
- * Simply returns the first element of an array. If a number is given
- * as a parameter it will return the first N elements.
- * 
- * ```js
- * [0,1,2,3].first() // => 0
- * [0,1,2,3].first(2) // => [0,1]
- * ```
- *
- * @params none, number
- * @return first element; {array} range
-*/ 
-Array.prototype.first = function(num) {
-  if(typeof num !== 'number') {
-    return this[0];
-  }
-  var dump = [], 
-      array = this; 
-  for(var i = 0; i <= num - 1; i++) { 
-    dump.push(array[i]); 
-  } 
-  return dump; 
-}
 
 
 
 
 /*
-* Array.size()
+ * ## Array.size()
  *
  * Returns the array size (this.length - 1) used in for loops.
  * 
@@ -95,7 +101,7 @@ Array.prototype.size = function() {
 
 
 /*
-* Array.filter()
+ * ## Array.filter()
  *
  * Takes a conditional function and returns every
  * element of the array that's resolved truhty
@@ -113,7 +119,7 @@ Array.prototype.size = function() {
 */
 Array.prototype.filter = function(condition) {
   var dump = [];
-  this.forEach(function(index) { 
+  this.each(function(index) { 
     if(condition(index)) {
       
       dump.push(index);
@@ -126,7 +132,8 @@ Array.prototype.filter = function(condition) {
 
 
 /*
-* Array.reverse() - this function actually exists!
+ * ## Array.reverse() 
+ * This function already exists, anyway let's rebuild it!!
  * 
  * Takes an given array and returns a reversed version.
  *
@@ -137,19 +144,21 @@ Array.prototype.filter = function(condition) {
  * @return reversed array
 */ 
 Array.prototype.reverse = function() {
-  var dump = [], 
-      array = this; 
+  var array = this,
+      dump = this.copy(),
+      j; 
   
-  for(var i = 1; i <= array.length; i++) {
-    dump.push(array[array.length - i]);
+  for(var i = 0; i <= array.length; i++) {
+     j = i-1;
+     array[j] = dump[dump.length - i];
   }
-  return dump; 
+  return array; 
 }
 
 
 
 /*
-* Array.contains()
+ * ## Array.contains()
  *
  * Checks an array for one or more entries, separated by comma (,)
  * *Notice*: If one of the searches is not found this function will return
@@ -196,17 +205,17 @@ Array.prototype.contains = function() {
 
 
 /*
-* Array.copy()
-*
-* Create a copy of the current array.
-*
-* @params none
-* @return new array
-*/
+ * ## Array.copy()
+ *
+ * Create a copy of the current array.
+ *
+ * @params none
+ * @return new array
+ */
 Array.prototype.copy = function() {
   var array = [];
   
-  this.forEach(function(index) {
+  this.each(function(index) {
     array.push(index);
   });
 
@@ -217,18 +226,18 @@ Array.prototype.copy = function() {
 
 
 /*
-* Array.replace()
-*
-* Takes a search word (array element) and replaces it with the
-* replacement given as second parameter.
-*
-* ```js
-* [0,1,2,3,4,5].replace(5, 'test'); // => [0,1,2,3,4,'test']
-* ```
-*
-* @params search, replacement
-* @return array
-*/ 
+ * ## Array.replace()
+ *
+ * Takes a search word (array element) and replaces it with the
+ * replacement given as second parameter.
+ *
+ * ```js
+ * [0,1,2,3,4,5].replace(5, 'test'); // => [0,1,2,3,4,'test']
+ * ```
+ *
+ * @params search, replacement
+ * @return array
+ */ 
 Array.prototype.replace = function(search, replacement) {
   var i,
       array = this.copy();
@@ -245,17 +254,19 @@ Array.prototype.replace = function(search, replacement) {
 
 
 /*
-* Array.merge()
-*
-* Merges the given array with the array it operates on into one big array.
-*
-* ```
-* ['my', 'array'].merge([4,8,15], [16,23,42]); // => ['my', 'array', 4, 8, 15, 16, 23, 42]
-* ``` 
-*
-* @params one or more arrays
-* @return merged array
-*/
+ * ## Array.merge()
+ *
+ * @TODO Make array merge() go any level deep! ALL THE WAY DOWN! \o/
+ *
+ * Merges the given array with the array it operates on into one big array.
+ *
+ * ```
+ * ['my', 'array'].merge([4,8,15], [16,23,42]); // => ['my', 'array', 4, 8, 15, 16, 23, 42]
+ * ``` 
+ *
+ * @params one or more arrays
+ * @return merged array
+ */
 Array.prototype.merge = function() {
   var i = 0,
       j = 0;
@@ -271,4 +282,173 @@ Array.prototype.merge = function() {
   }
 
   return this;
+}
+
+
+
+
+/*
+ * ## Array.random()
+ *
+ * Returns a random element from the array, optional within a special range.
+ *
+ * ```
+ * [1,2,3,4].random() // => 2
+ * [1,2,3,4].random() // => 4
+ * [1,2,3,4].random(1,3) // => 3
+ * ```
+ *
+ * @params {Number} - Max number, if one is given
+ * @params {Number} - Max and min number
+ * @params {None}   - Max is the array's size, min is zero
+ *
+ * */
+
+Array.prototype.random = function() {
+  var max,
+      min,
+      a,
+      b,
+      random,
+      size = this.length,
+      args = arguments,
+      variableSwitch = {
+        0: function() {
+          max = size;
+          min = 0;
+        },
+        1: function() {
+          max = args[0];
+          min = 0;
+        },
+        2: function() {
+          a = args[0];
+          b = args[1];
+          if(a > b) {
+            max = a;
+            min = b;
+          } else {
+            max = b;
+            min = a;
+          }
+        }
+      }
+  
+  var assignVariables = variableSwitch[args.length];
+  assignVariables();
+   
+  random = Math.floor( (Math.random() * (max - min)) + min );
+  return this[random];
+}
+
+/**
+ * ## Array.each()
+ *
+ * Performce a callback function on every element of the array.
+ * 
+ * ```
+ *  ['Lorem', 'Ipsum', 'Dolor'].each(function(item) {
+ *    console.log(item);
+ *  }); // => Lorem, Ipsum, Dolor
+ * ```
+ * 
+ * @param {Function} Function to be called on every element
+ * @return {Array} The original array
+ */
+Array.prototype.each = function(cb) {
+  var array = this,
+      i = 0;
+  for(i; i < array.length; i++) {
+    cb(array[i]);
+  }
+  return this;
+}
+
+
+
+/**
+ *
+ * ## Array.prepend()
+ *
+ * Prepands the current array with a new element, taking position 0 in the array.
+ *
+ * ```
+ * ['Array', 'is', 'awesome'].prepand('My');
+ * // => ['My', 'Array', 'is', 'awesome'];
+ */
+
+Array.prototype.prepend = function(prependIndex) {
+  if(!prependIndex) {
+    return this;
+  }
+
+  return this.reverse().append(prependIndex).reverse();
+}
+
+
+/**
+ * ## Array.append()
+ *
+ * Wrapper function for Array.push().
+ *
+ * @param {Any} Anything
+ * @return {Array} Array with new element added to the end
+ *
+ */
+Array.prototype.append = function(append) {
+  if(!append) {
+    return this;
+  }
+
+  this.push(append);
+
+  return this;
+}
+
+
+
+/**
+ * ## Array.concat()
+ *
+ * Combines the existing Array with every thing it is passed. This is like Array.merge() but 
+ * accepts everything as argument.
+ *
+ * @params {Anything} - Any number of Arrays or anything else that should be merged into the existing Array
+ */
+
+Array.prototype.concat = function() {
+  var dump = this;
+  
+  if(arguments.length === 0) {
+    return this;
+  } 
+  for(key in arguments) {
+    if(arguments[key].constructor.toString().indexOf('Array') > -1) {
+      console.log('Array found: ' + arguments[key]);
+      Array.prototype.merge.call(dump, arguments[key]);
+    } else {
+      dump.push(arguments[key]);
+    }
+  }
+    return dump;
+}
+
+/*
+ * ## Array.concatLazy()
+ *
+ * Lazy concatination - everything will be passed as-is without merging or
+ * concatinating.
+ * 
+ * ```
+ * [1,2,3].concatLazy(['My', 'Array'], {some: 'object'}); // => [1,2,3, Array[2], Object];
+ * ```
+ *
+ */
+Array.prototype.concatLazy = function() {
+  var array = this;
+  for(key in arguments) {
+    array.append(arguments[key]);
+  }
+
+  return array;
 }
