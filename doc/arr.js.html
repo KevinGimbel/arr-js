@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "arr.js", defaultSidebar = false;
+    var relativeDir = "", thisFile = "arr.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -18,6 +18,51 @@
     </div>
     <div id="tree"></div>
     <div id="headings">
+      <div class="heading h2">
+        <a href="#array.first()">Array.first()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.last()">Array.last()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.size()">Array.size()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.filter()">Array.filter()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.reverse()">Array.reverse()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.contains()">Array.contains()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.copy()">Array.copy()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.replace()">Array.replace()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.merge()">Array.merge()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.random()">Array.random()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.each()">Array.each()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.prepend()">Array.prepend()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.append()">Array.append()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.concat()">Array.concat()</a>
+      </div>
+      <div class="heading h2">
+        <a href="#array.concatlazy()">Array.concatLazy()</a>
+      </div>
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -49,7 +94,7 @@
     </div>
     <div class="dox_tag_title">version</div>
     <div class="dox_tag_detail">
-      <span>0.0.1</span>
+      <span>0.0.2</span>
     </div>
     <div class="dox_tag_title">page</div>
     <div class="dox_tag_detail">
@@ -62,12 +107,71 @@
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.first()">
+  <h2>
+    <a href="#array.first()" name="array.first()" class="pilcrow">&#182;</a>
+    Array.first()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.last()</p>
+
+  </div>
+  <div class="body"><p>Simply returns the first element of an array. If a number is given
+as a parameter it will return the first N elements.</p>
+
+
+<div class="highlight"><pre><code><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">first</span><span class="p">()</span> <span class="c1">// =&gt; 0</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">first</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// =&gt; [0,1]</span>
+</code></pre></div>
+
+
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">params</div>
+    <div class="dox_tag_detail">
+      <span>none, number</span>
+    </div>
+    <div class="dox_tag_title">Returns</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name"></span>
+      <span>first element; {array} range</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">first</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">num</span> <span class="o">!==</span> <span class="s1">&#39;number&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="kd">var</span> <span class="nx">dump</span> <span class="o">=</span> <span class="p">[],</span> 
+      <span class="nx">array</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span> 
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="nx">dump</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span> 
+  <span class="p">}</span> 
+  <span class="k">return</span> <span class="nx">dump</span><span class="p">;</span> 
+<span class="p">}</span>
+
+
+
+
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.last()">
+  <h2>
+    <a href="#array.last()" name="array.last()" class="pilcrow">&#182;</a>
+    Array.last()
+  </h2>
+</div>
+
   </div>
   <div class="body"><p>Simply returns the last element of an array. If a number is given
 as a parameter it will return the last N elements.</p>
@@ -111,53 +215,6 @@ as a parameter it will return the last N elements.</p>
 
 
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
-</div>
-<div class="dox">
-  <div class="summary"><p>Array.first()</p>
-  </div>
-  <div class="body"><p>Simply returns the first element of an array. If a number is given
-as a parameter it will return the first N elements.</p>
-
-
-<div class="highlight"><pre><code><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">first</span><span class="p">()</span> <span class="c1">// =&gt; 0</span>
-<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">first</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// =&gt; [0,1]</span>
-</code></pre></div>
-
-
-  </div>
-  <div class="details">
-    <div class="dox_tag_title">params</div>
-    <div class="dox_tag_detail">
-      <span>none, number</span>
-    </div>
-    <div class="dox_tag_title">Returns</div>
-    <div class="dox_tag_detail">
-      <span class="dox_tag_name"></span>
-      <span>first element; {array} range</span>
-    </div>
-  </div>
-</div>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">first</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">num</span> <span class="o">!==</span> <span class="s1">&#39;number&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-  <span class="p">}</span>
-  <span class="kd">var</span> <span class="nx">dump</span> <span class="o">=</span> <span class="p">[],</span> 
-      <span class="nx">array</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span> 
-  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
-    <span class="nx">dump</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span> 
-  <span class="p">}</span> 
-  <span class="k">return</span> <span class="nx">dump</span><span class="p">;</span> 
-<span class="p">}</span>
-
 
 
 
@@ -166,12 +223,15 @@ as a parameter it will return the first N elements.</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.size()">
+  <h2>
+    <a href="#array.size()" name="array.size()" class="pilcrow">&#182;</a>
+    Array.size()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.size()</p>
+
   </div>
   <div class="body"><p>Returns the array size (this.length - 1) used in for loops.</p>
 
@@ -207,12 +267,15 @@ as a parameter it will return the first N elements.</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.filter()">
+  <h2>
+    <a href="#array.filter()" name="array.filter()" class="pilcrow">&#182;</a>
+    Array.filter()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.filter()</p>
+
   </div>
   <div class="body"><p>Takes a conditional function and returns every
 element of the array that's resolved truhty</p>
@@ -243,7 +306,7 @@ element of the array that's resolved truhty</p>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">dump</span> <span class="o">=</span> <span class="p">[];</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span> 
     <span class="k">if</span><span class="p">(</span><span class="nx">condition</span><span class="p">(</span><span class="nx">index</span><span class="p">))</span> <span class="p">{</span>
       
       <span class="nx">dump</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
@@ -260,12 +323,17 @@ element of the array that's resolved truhty</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.reverse()">
+  <h2>
+    <a href="#array.reverse()" name="array.reverse()" class="pilcrow">&#182;</a>
+    Array.reverse()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.reverse() - this function actually exists!</p>
+
+
+<p>This function already exists, anyway let's rebuild it!!</p>
   </div>
   <div class="body"><p>Takes an given array and returns a reversed version.</p>
 
@@ -290,13 +358,15 @@ element of the array that's resolved truhty</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">dump</span> <span class="o">=</span> <span class="p">[],</span> 
-      <span class="nx">array</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span> 
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+      <span class="nx">dump</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">copy</span><span class="p">(),</span>
+      <span class="nx">j</span><span class="p">;</span> 
   
-  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">dump</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">i</span><span class="p">]);</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+     <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dump</span><span class="p">[</span><span class="nx">dump</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">i</span><span class="p">];</span>
   <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">dump</span><span class="p">;</span> 
+  <span class="k">return</span> <span class="nx">array</span><span class="p">;</span> 
 <span class="p">}</span>
 
 
@@ -306,12 +376,15 @@ element of the array that's resolved truhty</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.contains()">
+  <h2>
+    <a href="#array.contains()" name="array.contains()" class="pilcrow">&#182;</a>
+    Array.contains()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.contains()</p>
+
   </div>
   <div class="body"><p>Checks an array for one or more entries, separated by comma (,)
 <em>Notice</em>: If one of the searches is not found this function will return
@@ -374,12 +447,15 @@ false, otherwise it will return the complete array.</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.copy()">
+  <h2>
+    <a href="#array.copy()" name="array.copy()" class="pilcrow">&#182;</a>
+    Array.copy()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.copy()</p>
+
   </div>
   <div class="body"><p>Create a copy of the current array.</p>
   </div>
@@ -400,7 +476,7 @@ false, otherwise it will return the complete array.</p>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">copy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
   
-  <span class="k">this</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
   <span class="p">});</span>
 
@@ -415,12 +491,15 @@ false, otherwise it will return the complete array.</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.replace()">
+  <h2>
+    <a href="#array.replace()" name="array.replace()" class="pilcrow">&#182;</a>
+    Array.replace()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.replace()</p>
+
   </div>
   <div class="body"><p>Takes a search word (array element) and replaces it with the
 replacement given as second parameter.</p>
@@ -465,20 +544,29 @@ replacement given as second parameter.</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.merge()">
+  <h2>
+    <a href="#array.merge()" name="array.merge()" class="pilcrow">&#182;</a>
+    Array.merge()
+  </h2>
 </div>
-<div class="dox">
-  <div class="summary"><p>Array.merge()</p>
-  </div>
-  <div class="body"><p>Merges the given array with the array it operates on into one big array.</p>
 
-<p><code>
-['my', 'array'].merge([4,8,15], [16,23,42]); // =&gt; ['my', 'array', 4, 8, 15, 16, 23, 42]
-</code> </p>
+  </div>
+  <div class="body">
   </div>
   <div class="details">
+    <div class="dox_tag_title">TODO</div>
+    <div class="dox_tag_detail">
+      <span>Make array merge() go any level deep! ALL THE WAY DOWN! \o/
+
+Merges the given array with the array it operates on into one big array.
+
+<code>
+['my', 'array'].merge([4,8,15], [16,23,42]); // =&gt; ['my', 'array', 4, 8, 15, 16, 23, 42]
+</code> </span>
+    </div>
     <div class="dox_tag_title">params</div>
     <div class="dox_tag_detail">
       <span>one or more arrays</span>
@@ -507,6 +595,307 @@ replacement given as second parameter.</p>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.random()">
+  <h2>
+    <a href="#array.random()" name="array.random()" class="pilcrow">&#182;</a>
+    Array.random()
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p>Returns a random element from the array, optional within a special range.</p>
+
+<div class='highlight'><pre><code language=''>[1,2,3,4].random() // =&gt; 2
+[1,2,3,4].random() // =&gt; 4
+[1,2,3,4].random(1,3) // =&gt; 3
+</code></pre></div>
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_type">Number</span>
+      <span><ul>
+<li>Max number, if one is given</li>
+</ul></span>
+    </div>
+    <div class="dox_tag_title">params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_type">Number</span>
+      <span><ul>
+<li>Max and min number</li>
+</ul></span>
+    </div>
+    <div class="dox_tag_title">params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_type">None</span>
+      <span><ul>
+<li>Max is the array's size, min is zero</li>
+</ul></span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">random</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">max</span><span class="p">,</span>
+      <span class="nx">min</span><span class="p">,</span>
+      <span class="nx">a</span><span class="p">,</span>
+      <span class="nx">b</span><span class="p">,</span>
+      <span class="nx">random</span><span class="p">,</span>
+      <span class="nx">size</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+      <span class="nx">args</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">,</span>
+      <span class="nx">variableSwitch</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">max</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+          <span class="nx">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="mi">1</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">max</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+          <span class="nx">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="mi">2</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">a</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+          <span class="nx">b</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">max</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+            <span class="nx">min</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">max</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="nx">min</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+  
+  <span class="kd">var</span> <span class="nx">assignVariables</span> <span class="o">=</span> <span class="nx">variableSwitch</span><span class="p">[</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span><span class="p">];</span>
+  <span class="nx">assignVariables</span><span class="p">();</span>
+   
+  <span class="nx">random</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span><span class="p">))</span> <span class="o">+</span> <span class="nx">min</span> <span class="p">);</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="nx">random</span><span class="p">];</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.each()">
+  <h2>
+    <a href="#array.each()" name="array.each()" class="pilcrow">&#182;</a>
+    Array.each()
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p>Performce a callback function on every element of the array.</p>
+
+<div class='highlight'><pre><code language=''> ['Lorem', 'Ipsum', 'Dolor'].each(function(item) {
+   console.log(item);
+ }); // =&gt; Lorem, Ipsum, Dolor
+</code></pre></div>
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">Function</span>
+      <span class="dox_type">Function</span>
+      <span>to be called on every element</span>
+    </div>
+    <div class="dox_tag_title">Returns</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name"></span>
+      <span class="dox_type">Array</span>
+      <span>The original array</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">each</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+      <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cb</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+  </div>
+  <div class="body">
+<div class="pilwrap" id="array.prepend()">
+  <h2>
+    <a href="#array.prepend()" name="array.prepend()" class="pilcrow">&#182;</a>
+    Array.prepend()
+  </h2>
+</div>
+
+
+<p>Prepands the current array with a new element, taking position 0 in the array.</p>
+
+<p>```
+['Array', 'is', 'awesome'].prepand('My');
+// => ['My', 'Array', 'is', 'awesome'];</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">prepend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">prependIndex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">prependIndex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="nx">prependIndex</span><span class="p">).</span><span class="nx">reverse</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.append()">
+  <h2>
+    <a href="#array.append()" name="array.append()" class="pilcrow">&#182;</a>
+    Array.append()
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p>Wrapper function for Array.push().</p>
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">Params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name">Anything</span>
+      <span class="dox_type">Any</span>
+    </div>
+    <div class="dox_tag_title">Returns</div>
+    <div class="dox_tag_detail">
+      <span class="dox_tag_name"></span>
+      <span class="dox_type">Array</span>
+      <span>Array with new element added to the end</span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">append</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">append</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">append</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">append</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.concat()">
+  <h2>
+    <a href="#array.concat()" name="array.concat()" class="pilcrow">&#182;</a>
+    Array.concat()
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p>Combines the existing Array with every thing it is passed. This is like Array.merge() but 
+accepts everything as argument.</p>
+  </div>
+  <div class="details">
+    <div class="dox_tag_title">params</div>
+    <div class="dox_tag_detail">
+      <span class="dox_type">Anything</span>
+      <span><ul>
+<li>Any number of Arrays or anything else that should be merged into the existing Array</li>
+</ul></span>
+    </div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">concat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">dump</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  
+  <span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span> 
+  <span class="k">for</span><span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">arguments</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">constructor</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;Array&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Array found: &#39;</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+      <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">merge</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">dump</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">dump</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">dump</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="array.concatlazy()">
+  <h2>
+    <a href="#array.concatlazy()" name="array.concatlazy()" class="pilcrow">&#182;</a>
+    Array.concatLazy()
+  </h2>
+</div>
+
+  </div>
+  <div class="body"><p>Lazy concatination - everything will be passed as-is without merging or
+concatinating.</p>
+
+<div class='highlight'><pre><code language=''>[1,2,3].concatLazy(['My', 'Array'], {some: 'object'}); // =&gt; [1,2,3, Array[2], Object];
+</code></pre></div>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">concatLazy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">arguments</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">array</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
         </td>

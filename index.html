@@ -1,19 +1,21 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Arr.js - Arr!</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site__header">
   <div class="wrap">
-    <h1>Arr.js</h1>
-    <small>Initial version.</small>
+    <h1>Arr.js <small>v0.0.2</small></h1>
     <p>Arr.js enhances the JavaScript Array Object by providing a set of custom functions.</p>
     <p>Below you can see some quick examples but there's also a <a href="./doc/arr.js.html">little documentation page</a> where you can see comments, examples and the actual source code.</p>
   </div>
 </header>
 
 <main class="wrapper">
+<h2>Quick overview</h2>
   <section class="article">
     <h2 class="example__headline">Array.last()</h2>
     <pre><code>
@@ -77,6 +79,39 @@
 [1,2,3,4,5].merge(['another', 'array']) // => [1,2,3,4,5,'another','array']
     </code></pre>
   </section>
+
+
+  <section class="article">
+    <h2 class="example__headline">Array.each()</h2>
+    <pre><code>
+[1,2,3,4,5].each(function(item) { console.log(item * 5); }); // => 5,10,15,20,25
+    </code></pre>
+  </section>
+
+
+  <section class="article">
+    <h2 class="example__headline">Array.prepend()</h2>
+    <pre><code>
+['Array', 'is', 'awesome'].prepend('My') // => ['My', 'Array', 'is', 'awesome'];
+    </code></pre>
+  </section>
+
+
+  <section class="article">
+    <h2 class="example__headline">Array.append()</h2>
+    <pre><code>
+[1,2].append('wrapper for Array.push()') // => [1,2,'wrapper for Array.push()']
+    </code></pre>
+  </section>
+
+
+  <section class="article">
+    <h2 class="example__headline">Array.concat()</h2>
+    <pre><code>
+[1,2].concat([3,4,5,6], 'Some', 'Strings'); // => [1,2,3,4,5,6,'Some','String']
+    </code></pre>
+  </section>
+
 </main>
 
 <footer class="site__footer">
@@ -87,7 +122,7 @@
   function injectScript() {
     var el = document.createElement('script');
     el.type = 'text/javascript';
-    el.src = 'arr.source.js';
+    el.src = 'arr.js';
     document.body.appendChild(el);
   }
 
