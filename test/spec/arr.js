@@ -7,7 +7,7 @@ describe("arr-js", function() {
       expect(simpleArray.first()).toEqual(0);
       expect(simpleArray.first('invalid')).toEqual(0);
       expect(simpleArray.first(-1)).toEqual(0); //TODO
-      // expect(simpleArray.first(simpleArray.length)).toEqual(0); //TODO
+      expect(simpleArray.first(simpleArray.length)).toEqual(0); //TODO
     });
 
     it("should return the first n elements if a valid number is passed", function() {
