@@ -25,5 +25,9 @@ describe("arr-js", function() {
       expect(simpleArray.last(-1)).toEqual(simpleArray[simpleArray.length-1]);
       expect(simpleArray.last(simpleArray.length+1)).toEqual(simpleArray[simpleArray.length-1]);
     });    
+    it("should return the last n elements if a valid number is passed", function() {
+      expect(simpleArray.last(2)).toEqual([2,3]);
+      expect(simpleArray.last(simpleArray.length)).toEqual(simpleArray);
+    });
   });
 });

@@ -58,14 +58,8 @@ Array.prototype.first = function(num) {
 Array.prototype.last = function(num) {
   if(parseInt(num,10) != num || num<0 || num>this.length) {
     return this[this.length - 1];
-  } 
-  
-  var dump = [], 
-      array = this; 
-  for(var i = 1; i <= num; i++) {
-    dump.push(array[array.length - i]);
   }
-  return dump; 
+  return this.slice(this.length-num,this.length);
 }
 
 
