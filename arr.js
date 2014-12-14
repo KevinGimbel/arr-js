@@ -30,7 +30,7 @@
  * @return first element; {array} range
 */ 
 Array.prototype.first = function(num) {
-  if(typeof num !== 'number' || num<0 || num>=this.length) {
+  if(parseInt(num,10) != num || num<0 || num>this.length) {
     return this[0];
   }
   var dump = [], 
