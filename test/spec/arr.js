@@ -1,6 +1,7 @@
 describe("arr-js", function() {
 
   var simpleArray = [0,1,2,3];
+  var simpleEvenArray = [0,2];
 
   describe("first", function() {
     it("should return the first element if no or invalid number is passed", function() {
@@ -30,4 +31,23 @@ describe("arr-js", function() {
       expect(simpleArray.last(simpleArray.length)).toEqual(simpleArray);
     });
   });
+
+  describe("size", function() {
+    it("should return the size", function() {
+      expect(simpleArray.size()).toEqual(3);
+    });
+  });
+
+  describe("filter", function() {
+    it("should filter all elements based on always false condition", function() {
+      expect(simpleArray.filter(function(){return false;})).toEqual([]);
+    });
+    it("should filter no elements based on always true condition", function() {
+      expect(simpleArray.filter(function(){return true;})).toEqual(simpleArray);      
+    });
+    it("should filter all even numbers", function() {
+      expect(simpleArray.filter(function(item){return item%2==0;})).toEqual(simpleEvenArray);
+    });
+  });
+
 });

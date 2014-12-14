@@ -109,7 +109,6 @@ Array.prototype.filter = function(condition) {
   var dump = [];
   this.each(function(index) { 
     if(condition(index)) {
-      
       dump.push(index);
     }
   });
