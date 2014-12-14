@@ -56,10 +56,9 @@ Array.prototype.first = function(num) {
  * @return last element; {array} range
 */ 
 Array.prototype.last = function(num) {
-  
- if(typeof num !== 'number') {
-   return this[this.length - 1];
- } 
+  if(parseInt(num,10) != num || num<0 || num>this.length) {
+    return this[this.length - 1];
+  } 
   
   var dump = [], 
       array = this; 

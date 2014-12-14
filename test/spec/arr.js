@@ -16,4 +16,14 @@ describe("arr-js", function() {
       expect(simpleArray.first(simpleArray.length)).toEqual(simpleArray);
     });
   });
+
+  describe("last", function() {
+    it("should return the last element if no or invalid number is passed", function() {
+      expect(simpleArray.last()).toEqual(simpleArray[simpleArray.length-1]);
+      expect(simpleArray.last('invalid')).toEqual(simpleArray[simpleArray.length-1]);
+      expect(simpleArray.last(1.1)).toEqual(simpleArray[simpleArray.length-1]);
+      expect(simpleArray.last(-1)).toEqual(simpleArray[simpleArray.length-1]);
+      expect(simpleArray.last(simpleArray.length+1)).toEqual(simpleArray[simpleArray.length-1]);
+    });    
+  });
 });
