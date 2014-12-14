@@ -131,15 +131,13 @@ Array.prototype.filter = function(condition) {
  * @return reversed array
 */ 
 Array.prototype.reverse = function() {
-  var array = this,
-      dump = this.copy(),
-      j; 
-  
-  for(var i = 0; i <= array.length; i++) {
-     j = i-1;
-     array[j] = dump[dump.length - i];
+  for(var i=0; i<=this.size()/2; i++) {
+    var tmp = this[i],
+        pos = this.length-i-1;
+    this[i] = this[pos];
+    this[pos] = tmp;
   }
-  return array; 
+  return this;
 }
 
 
