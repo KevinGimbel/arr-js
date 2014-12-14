@@ -33,12 +33,7 @@ Array.prototype.first = function(num) {
   if(parseInt(num,10) != num || num<0 || num>this.length) {
     return this[0];
   }
-  var dump = [], 
-      array = this; 
-  for(var i = 0; i <= num - 1; i++) { 
-    dump.push(array[i]); 
-  } 
-  return dump; 
+  return this.slice(0,num);
 }
 
 
