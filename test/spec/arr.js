@@ -2,6 +2,7 @@ describe("arr-js", function() {
 
   var simpleArray = [0,1,2,3];
   var simpleEvenArray = [0,2];
+  var simpleReversedArray = [3,2,1,0];
 
   describe("first", function() {
     it("should return the first element if no or invalid number is passed", function() {
@@ -48,6 +49,13 @@ describe("arr-js", function() {
     it("should filter all even numbers", function() {
       expect(simpleArray.filter(function(item){return item%2==0;})).toEqual(simpleEvenArray);
     });
+  });
+
+  describe("reverse", function() {
+    it("should reverse an array", function() {
+      expect(simpleArray.reverse()).toEqual(simpleReversedArray);
+    });
+    
   });
 
 });
