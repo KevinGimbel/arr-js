@@ -133,9 +133,9 @@ Array.prototype.filter = function(condition) {
 Array.prototype.reverse = function() {
   for(var i=0; i<=this.size()/2; i++) {
     var tmp = this[i],
-        pos = this.length-i-1;
-    this[i] = this[pos];
-    this[pos] = tmp;
+        mirrorPos = this.length-i-1;
+    this[i] = this[mirrorPos];
+    this[mirrorPos] = tmp;
   }
   return this;
 }
