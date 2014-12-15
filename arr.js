@@ -30,15 +30,10 @@
  * @return first element; {array} range
 */ 
 Array.prototype.first = function(num) {
-  if(typeof num !== 'number' || num<0 || num>=this.length) {
+  if(parseInt(num,10) != num || num<0 || num>this.length) {
     return this[0];
   }
-  var dump = [], 
-      array = this; 
-  for(var i = 0; i <= num - 1; i++) { 
-    dump.push(array[i]); 
-  } 
-  return dump; 
+  return this.slice(0,num);
 }
 
 
@@ -61,17 +56,10 @@ Array.prototype.first = function(num) {
  * @return last element; {array} range
 */ 
 Array.prototype.last = function(num) {
-  
- if(typeof num !== 'number') {
-   return this[this.length - 1];
- } 
-  
-  var dump = [], 
-      array = this; 
-  for(var i = 1; i <= num; i++) {
-    dump.push(array[array.length - i]);
+  if(parseInt(num,10) != num || num<0 || num>this.length) {
+    return this[this.length - 1];
   }
-  return dump; 
+  return this.slice(this.length-num,this.length);
 }
 
 
@@ -121,7 +109,6 @@ Array.prototype.filter = function(condition) {
   var dump = [];
   this.each(function(index) { 
     if(condition(index)) {
-      
       dump.push(index);
     }
   });
@@ -144,15 +131,13 @@ Array.prototype.filter = function(condition) {
  * @return reversed array
 */ 
 Array.prototype.reverse = function() {
-  var array = this,
-      dump = this.copy(),
-      j; 
-  
-  for(var i = 0; i <= array.length; i++) {
-     j = i-1;
-     array[j] = dump[dump.length - i];
+  for(var i=0; i<=this.size()/2; i++) {
+    var tmp = this[i],
+        mirrorPos = this.length-i-1;
+    this[i] = this[mirrorPos];
+    this[mirrorPos] = tmp;
   }
-  return array; 
+  return this;
 }
 
 
